@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+div,
+img {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(-45deg, #333, #777676);
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 600px;
+	height: 300px;
+	background-color: #333;
+	border-radius: 150px;
+	box-shadow: 0 0 15px 1px #c0c0c0;
+}
+
+h2 {
+	padding: 0 15px;
+	color: #fff;
+}
