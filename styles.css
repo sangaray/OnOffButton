@@ -1,33 +1,73 @@
-* {
-	box-sizing: border-box;
-}
-
-body,
-div,
-img {
-	margin: 0;
-	padding: 0;
-}
-
 body {
-	width: 100vw;
-	height: 100vh;
-	background: linear-gradient(-45deg, #333, #777676);
-	font-family: sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #f0f0f0;
 }
 
-.container {
-	width: 600px;
-	height: 300px;
-	background-color: #333;
-	border-radius: 150px;
-	box-shadow: 0 0 15px 1px #c0c0c0;
+.switch {
+	position: relative;
+	width: 200px;
+	height: 100px;
+	perspective: 1000px; /* Añadimos perspectiva para el efecto 3D */
 }
 
-h2 {
-	padding: 0 15px;
-	color: #fff;
+input[type="checkbox"] {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-color: #ccc;
+	border-radius: 50px;
+	overflow: hidden;
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.slider .on,
+.slider .off {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.5s;
+}
+
+input[type="checkbox"]:checked + .slider .on {
+	transform: translateX(100px);
+	opacity: 1;
+	z-index: 1;
+}
+
+input[type="checkbox"]:checked + .slider .off {
+	transform: translateX(-100px);
+	opacity: 0;
+	z-index: 0;
+}
+
+input[type="checkbox"]:not(:checked) + .slider .on {
+	transform: rotateZ(180deg);
+	opacity: 0;
+	z-index: 0;
+}
+
+input[type="checkbox"]:not(:checked) + .slider .off {
+	transform: rotateZ(0deg);
+	opacity: 1;
+	z-index: 1;
+}
+
+.slider img {
+	width: 60px;
+	height: 60px;
+	object-fit: cover;
 }
